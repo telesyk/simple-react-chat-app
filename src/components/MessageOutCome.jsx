@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-function MessageOutCome({ message }) {
+function MessageOutCome({ message, isMyMessage }) {
+  console.log('[message outCome]', message.sender.username);
+  // console.log('[isMyMessage outCome]', isMyMessage);
   if (message?.attachments?.length > 0) {
     return (
       <img
@@ -11,7 +13,11 @@ function MessageOutCome({ message }) {
       />
     );
   }
-  return <div className="message message-out-come">{message.text}</div>;
+  return (
+    <div className={`message-row ${isMyMessage ? 'flex-row-reverse' : ''}`}>
+      <div className="message message-out-come">{message.text}</div>
+    </div>
+  );
 }
 
 export default MessageOutCome;

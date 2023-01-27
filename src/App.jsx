@@ -5,7 +5,7 @@ import ChatFeed from './components/ChatFeed';
 
 const chatConfig = {
   ID: 'f120dab3-e5d2-4003-8d2c-bca33906f9ad',
-  userPass: '123!qwe',
+  userPass: '123qwe',
   userName: 'admin',
 };
 

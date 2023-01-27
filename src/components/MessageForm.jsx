@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { sendMessage, isTyping } from 'react-chat-engine';
 
@@ -6,12 +7,16 @@ function MessageForm(props) {
   const { chatId, creds } = props;
 
   const handleSubmit = event => {
-    console.log(event);
+    console.log('[event submit]', event);
     event.preventDefault();
 
     const text = value.trim();
+    console.log('[text]', text);
 
-    if (text.length > 0) sendMessage(creds, chatId, { text });
+    if (text.length > 0) {
+      sendMessage(creds, chatId, { text });
+      setValue('');
+    }
   };
 
   const handleChange = event => {
