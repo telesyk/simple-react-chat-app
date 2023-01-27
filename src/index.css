@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .chat-feed {
+    @apply p-4;
+  }
+
+  .message-row {
+    @apply flex gap-4;
+  }
+  .message {
+    @apply my-8 py-4 px-8 rounded;
+  }
+  .message-in-come {
+    @apply text-gray-800 bg-zinc-100;
+  }
+  .message-out-come {
+    @apply text-gray-50 bg-slate-800;
+  }
+
+  .message-form {
+    @apply text-slate-800 rounded border-2 border-sky-200;
+  }
+}
