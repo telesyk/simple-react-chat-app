@@ -2,8 +2,6 @@
 import React from 'react';
 
 function MessageOutCome({ message, isMyMessage }) {
-  console.log('[message outCome]', message.sender.username);
-  // console.log('[isMyMessage outCome]', isMyMessage);
   if (message?.attachments?.length > 0) {
     return (
       <img

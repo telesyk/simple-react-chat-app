@@ -6,10 +6,6 @@ function MessageInCome({ lastMessage, message }) {
   const isFirstMessageByUser =
     !lastMessage || lastMessage.sender.username !== message.sender.username;
 
-  console.debug('[message In-come]', message.sender.username);
-  // console.debug('[isMyMessage In-come]', isMyMessage);
-  // const userNameAbr = message.sender.first_name.
-
   return (
     <div className="message-row">
       <div className="message-avatar border-gray-800">
