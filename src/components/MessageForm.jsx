@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { sendMessage, isTyping } from 'react-chat-engine';
-import { SendOutlined } from '@ant-design/icons';
+import { SendOutlined, PictureOutlined } from '@ant-design/icons';
 
 function MessageForm(props) {
   const [value, setValue] = useState('');
@@ -12,16 +12,18 @@ function MessageForm(props) {
 
     const text = value.trim();
 
-    if (text.length > 0) {
-      sendMessage(creds, chatId, { text });
-      setValue('');
-    }
+    if (text.length > 0) sendMessage(creds, chatId, { text });
+
+    setValue('');
   };
 
   const handleChange = event => {
-    event.preventDefault();
     setValue(event.target.value);
     isTyping(props, chatId);
+  };
+
+  const handleUpload = event => {
+    sendMessage(creds, chatId, { files: event.target.files, text: '' });
   };
 
   return (
@@ -34,7 +36,19 @@ function MessageForm(props) {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      <button type="submit" className="message-send" onSubmit={handleSubmit}>
+      <label htmlFor="uploadButton">
+        <span className="message-button">
+          <PictureOutlined className="message-upload-icon" />
+        </span>
+        <input
+          type="file"
+          id="uploadButton"
+          multiple={false}
+          style={{ display: 'none' }}
+          onChange={handleUpload}
+        />
+      </label>
+      <button type="submit" className="message-button" onSubmit={handleSubmit}>
         <SendOutlined className="message-send-icon" />
       </button>
     </form>

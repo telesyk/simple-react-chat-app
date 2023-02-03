@@ -3,23 +3,25 @@ import React from 'react';
 import { ChatEngine } from 'react-chat-engine';
 // import { ChatEngineWrapper, ChatSocket, ChatFeed } from 'react-chat-engine';
 import ChatFeed from './components/ChatFeed';
+import LoginForm from './components/LoginForm';
 
 const chatConfig = {
   ID: 'f120dab3-e5d2-4003-8d2c-bca33906f9ad',
   userPass: '123qwe',
   userName: 'admin',
-  chatID: '142693',
-  chatAccessKey: 'ca-897542c4-7b5a-4f5a-9a70-6b15a8d31a21',
+  chatID: '143554',
+  chatAccessKey: '123qwe!',
 };
 
 function App() {
+  if (!localStorage.getItem('testChatUsername')) return <LoginForm />;
   return (
     <div className="page">
       <ChatEngine
         height="100vh"
         projectID={chatConfig.ID}
-        userName={chatConfig.userName}
-        userSecret={chatConfig.userPass}
+        userName={localStorage.getItem('testChatUsername')}
+        userSecret={localStorage.getItem('testChatPassword')}
         renderChatFeed={chatAppState => <ChatFeed {...chatAppState} />}
       />
       {/* <ChatEngineWrapper>

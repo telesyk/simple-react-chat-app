@@ -7,7 +7,7 @@ function MessageOutCome({ message, isMyMessage }) {
       <img
         src={message.attachments[0].file}
         alt="message-attachment"
-        className="message-image ml-auto mr-8"
+        className="message-image ml-auto mr-2"
       />
     );
   }

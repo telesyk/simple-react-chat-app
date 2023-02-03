@@ -24,7 +24,7 @@ function MessageInCome({ lastMessage, message }) {
         <img
           src={message.attachments[0].file}
           alt="message-attachment"
-          className="message-image mr-auto ml-8"
+          className="message-image mr-auto ml-2"
         />
       ) : (
         <div className="message message-in-come">{message.text}</div>

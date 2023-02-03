@@ -8,6 +8,22 @@ span svg {
 }
 
 @layer components {
+  .login-wrapper {
+    @apply h-screen flex justify-center items-center bg-gradient-to-t to-sky-800 from-blue-900 text-sky-50;
+  }
+  .login-form {
+    @apply flex flex-col gap-8 max-w-lg w-full p-12 shadow-xl rounded-lg border border-sky-700 backdrop-blur-md;
+  }
+  .login-title {
+    @apply text-center text-2xl font-bold;
+  }
+  .login-control {
+    @apply py-2 px-4 text-lg rounded-md text-gray-900 outline-none;
+  }
+  .login-submit {
+    @apply flex gap-2 items-center py-2 px-8 text-lg rounded-md bg-sky-50 hover:bg-green-100 text-sky-900 uppercase;
+  }
+
   .chat-feed {
     @apply p-4 relative overflow-y-scroll h-screen;
   }
@@ -18,23 +34,36 @@ span svg {
     @apply w-24 h-24;
   }
   .read-receipts {
-    @apply relative -mt-4;
+    @apply relative -mt-4 flex;
   }
   .read-receipts-icon {
     @apply w-3 h-3 absolute bottom-px right-px text-gray-400;
   }
 
   .message-block {
-    @apply w-full;
+    @apply w-full py-4;
+  }
+  .message-in + .message-in,
+  .message-out + .message-out {
+    @apply pt-0;
   }
   .message-row {
-    @apply flex gap-2 py-4;
+    @apply flex gap-2;
+  }
+  .message-in + .message-in .message {
+    @apply rounded-tl-none;
+  }
+  .message-out + .message-out .message {
+    @apply rounded-tr-none;
   }
   .message-avatar {
     @apply w-8 h-8 overflow-hidden relative rounded-full border-2;
   }
   .message-avatar-image {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+  .message-image {
+    @apply max-w-xs;
   }
   .message {
     @apply py-2 px-4 rounded text-xs;
@@ -47,15 +76,18 @@ span svg {
   }
 
   .message-form-container {
-    @apply w-full px-4 pb-8 pt-6 bottom-0 absolute bottom-0;
+    @apply w-full px-4 pb-8 pt-6 bottom-0 absolute bottom-0 bg-slate-50;
   }
   .message-form {
-    @apply flex justify-between rounded-lg border-2 border-sky-200 text-slate-800;
+    @apply flex justify-between items-center overflow-hidden rounded-lg border-2 border-sky-200 text-slate-800;
   }
-  .message-send {
-    @apply p-2 flex justify-center items-center text-sky-700;
+  .message-input {
+    @apply py-2 px-3 border-0 outline-none flex-auto;
+  }
+  .message-button {
+    @apply py-2 px-3 flex justify-center items-center text-sky-700;
   }
   .message-send-icon {
-    @apply -rotate-45;
+    @apply -rotate-45 -translate-y-0.5;
   }
 }
