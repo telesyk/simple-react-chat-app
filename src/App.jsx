@@ -29,9 +29,9 @@ function App() {
           projectID={chatConfig.ID}
           chatID={chatConfig.chatID}
           chatAccessKey={chatConfig.chatAccessKey}
-          senderUsername={chatConfig.userName}
         />
 
+        <ChatFeed />
         <ChatFeed activeChat={chatConfig.chatID} />
       </ChatEngineWrapper> */}
     </div>
